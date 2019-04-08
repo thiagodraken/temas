@@ -22,5 +22,8 @@
     "express": "^4.16.4",
     "mongoose": "^5.4.7",
     "nodemon": "^1.18.9"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.4"
   }
 }

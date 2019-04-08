@@ -21,7 +21,7 @@ export const LutadorSchema = new Schema({
     paisOrigem: {
         type: String
     },
-    created_date: {
+    dataAtualizacao: {
         type: Date,
         default: Date.now
     }
