@@ -27,7 +27,7 @@ export class LutadorController{
     }
 
     public getLutadorComID (req: Request, res: Response) {           
-        Lutador.findById(req.params.lutadorID, (err, lutador) => {
+        Lutador.findById(req.params.lutadorId, (err, lutador) => {
             if(err){
                 res.send(err);
             }
@@ -45,11 +45,11 @@ export class LutadorController{
     }
 
     public deleteLutador (req: Request, res: Response) {           
-        Lutador.remove({ _id: req.params.lutadorId }, (err, lutador) => {
+        Lutador.deleteOne({ _id: req.params.lutadorId }, (err, lutador) => {
             if(err){
                 res.send(err);
             }
-            res.json({ message: 'Successfully deleted lutador!'});
+            res.json({ message: 'Lutador deletado com sucesso!'});
         });
     }
     
