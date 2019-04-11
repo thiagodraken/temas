@@ -1,0 +1,61 @@
+<div [@routerTransition]>
+  <!-- <app-page-header [heading]="'Tables'" [icon]="'fa-table'"></app-page-header> -->
+  <app-page-header [heading]="'Lutadores'" ></app-page-header>
+
+  <ul class="heroes">
+      <li *ngFor="let lutador of dataSource">
+        <a routerLink="/detail/{{lutador.id}}">
+          <span class="badge">{{lutador.id}}</span> {{lutador.nome}}
+        </a>
+        <button class="delete" title="delete hero"
+        (click)="delete(hero)">x</button>
+      </li>
+    </ul>
+
+    
+  <div class="row">
+    <div class="col col-xl-12 col-lg-12">
+      <!-- <div class="card mb-3"> -->
+
+        <div class="card-body table-responsive">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Nome</th>
+                <th>Sexo</th>
+                <th>Peso</th>
+                <th>Categoria de Peso</th>
+                <th>País de Origem</th>
+                <th>Ação</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let lutador of dataSource">
+                <th scope="row">{{lutador.nome}}</th>
+                <td>{{lutador.sexo}}</td>
+                <td>{{lutador.peso}}</td>
+                <td></td>
+                <td>{{lutador.paisOrigem}}</td>
+                <td><button class="delete" title="delete hero"
+                  (click)="delete(hero)">x</button></td>
+
+              </tr>
+              <!-- <tr>
+                <th scope="row">2</th>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td>Larry</td>
+                <td>the Bird</td>
+                <td>@twitter</td>
+              </tr> -->
+            </tbody>
+          </table>
+        </div>
+      <!-- </div>aqui -->
+    </div>
+  </div>
+</div>
