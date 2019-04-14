@@ -1,0 +1,12 @@
+<div>
+  <h3>Adicionar Novo Lutador</h3>
+</div>
+<form [formGroup]="formLutador" (ngSubmit)="addLutador(formLutador.value)">
+  <input name="nome" placeholder="Nome" formControlName="nome">
+  <input name="idade" placeholder="Idade" formControlName="idade">
+  <input name="sexo" placeholder="Sexo" formControlName="sexo">
+  <input name="peso" placeholder="Peso" formControlName="peso">
+  <input name="paisOrigem" placeholder="País de Origem" formControlName="paisOrigem">
+  
+  <button type="submit" [disabled]="!formLutador.valid" >Adicionar</button>
+</form>
