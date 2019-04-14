@@ -1,12 +1,12 @@
 {
-  "name": "SB-Admin-BS4-Angular-7",
+  "name": "ufc",
   "version": "7.0.0",
   "license": "Apache",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build --prod",
-    "gitbuild": "ng build --prod --base-href /start-angular/SB-Admin-BS4-Angular-7/master/dist/",
+    "gitbuild": "ng build --prod --base-href /start-angular/ufc/master/dist/",
     "test": "ng test",
     "test-ci": "TEST_CI=true ng test",
     "lint": "ng lint",

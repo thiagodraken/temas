@@ -7,8 +7,11 @@ const routes: Routes = [
         path: '',
         component: LayoutComponent,
         children: [
-            { path: '', redirectTo: 'dashboard', pathMatch: 'prefix' },
+            { path: '', redirectTo: 'home', pathMatch: 'prefix' },
+            { path: 'home', loadChildren: './home/home.module#HomeModule' },
             { path: 'lutadores', loadChildren: './lutadores/lutadores.module#LutadoresModule' },
+            { path: 'lutador-novo', loadChildren: './lutador-novo/lutador-novo.module#LutadorNovoModule' },
+            { path: 'lutador-detalhe', loadChildren: './lutador-detalhe/lutador-detalhe.module#LutadorDetalheModule' },
             { path: 'dashboard', loadChildren: './dashboard/dashboard.module#DashboardModule' },
             { path: 'charts', loadChildren: './charts/charts.module#ChartsModule' },
             { path: 'tables', loadChildren: './tables/tables.module#TablesModule' },
