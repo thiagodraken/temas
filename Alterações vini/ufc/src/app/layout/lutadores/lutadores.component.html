@@ -31,7 +31,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr routerLink="/lutador-detalhe" [routerLinkActive]="['router-link-active']" *ngFor="let lutador of dataSource">
+            <tr routerLink="/lutador-detalhe/{{lutador._id}}" [routerLinkActive]="['router-link-active']" *ngFor="let lutador of dataSource">
               <th scope="row">{{lutador.nome}}</th>
               <td>{{lutador.sexo}}</td>
               <td>{{lutador.peso}}</td>

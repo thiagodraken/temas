@@ -1,0 +1,16 @@
+<div>
+  <h3>Lutador {{lutador.nome}}</h3>
+</div>
+
+<input name="nome" placeholder="{{lutador.nome}}">
+<input name="idade" placeholder="{{lutador.idade}}">
+<input name="sexo" placeholder="{{lutador.sexo}}">
+<input name="peso" placeholder="{{lutador.peso}}">
+<input name="paisOrigem" placeholder="{{lutador.paisOrigem}}">
+
+<a routerLink="/lutador-editar" [routerLinkActive]="['router-link-active']">
+  <button type="button" class="btn btn-lg btn-danger">Editar</button>
+</a>
+
+<button type="button" class="btn btn-lg btn-danger" (click)="deleteProduto(produto._id)">Deletar</button>
+
