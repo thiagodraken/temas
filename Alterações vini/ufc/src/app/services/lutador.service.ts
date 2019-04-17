@@ -7,7 +7,8 @@ import { Lutador } from '../models/lutador';
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
 };
-const apiUrl = 'https://localhost:3000/lutador';
+// const apiUrl = 'https://localhost:3000/lutador';
+const apiUrl = 'https://54.207.103.183:3000/lutador';
 
 @Injectable({
   providedIn: 'root'
@@ -35,7 +36,7 @@ export class LutadorService {
   addLutador (lutador): Observable<Lutador> {
     return this.http.post<Lutador>(apiUrl, lutador, httpOptions).pipe(
       // tslint:disable-next-line:no-shadowed-variable
-      tap((lutador: Lutador) => console.log(`adicionou o lutador com w/ id=${lutador.id}`)),
+      tap((lutador: Lutador) => console.log(`adicionou o lutador com w/ id=${lutador._id}`)),
       catchError(this.handleError<Lutador>('addLutador'))
     );
   }
@@ -43,7 +44,7 @@ export class LutadorService {
   updateLutador(id, lutador): Observable<any> {
     const url = `${apiUrl}/${id}`;
     return this.http.put(url, lutador, httpOptions).pipe(
-      tap(_ => console.log(`atualiza o produco com id=${id}`)),
+      tap(_ => console.log(`atualiza o lutador com id=${id}`)),
       catchError(this.handleError<any>('updateLutador'))
     );
   }

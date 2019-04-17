@@ -1,5 +1,5 @@
 export class Lutador {
-    id: String;
+    _id: String;
     nome: String;
     idade: Number;
     sexo: String;

@@ -12,6 +12,7 @@ const routes: Routes = [
             { path: 'lutadores', loadChildren: './lutadores/lutadores.module#LutadoresModule' },
             { path: 'lutador-novo', loadChildren: './lutador-novo/lutador-novo.module#LutadorNovoModule' },
             { path: 'lutador-detalhe/:id', loadChildren: './lutador-detalhe/lutador-detalhe.module#LutadorDetalheModule' },
+            { path: 'lutador-editar/:id', loadChildren: './lutador-editar/lutador-editar.module#LutadorEditarModule' },
             { path: 'dashboard', loadChildren: './dashboard/dashboard.module#DashboardModule' },
             { path: 'charts', loadChildren: './charts/charts.module#ChartsModule' },
             { path: 'tables', loadChildren: './tables/tables.module#TablesModule' },

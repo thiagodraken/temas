@@ -8,9 +8,8 @@
 <input name="peso" placeholder="{{lutador.peso}}">
 <input name="paisOrigem" placeholder="{{lutador.paisOrigem}}">
 
-<a routerLink="/lutador-editar" [routerLinkActive]="['router-link-active']">
-  <button type="button" class="btn btn-lg btn-danger">Editar</button>
-</a>
+<button type="button" class="btn btn-lg btn-danger" routerLink="/lutador-editar/{{lutador._id}}" [routerLinkActive]="['router-link-active']">Editar</button>
 
-<button type="button" class="btn btn-lg btn-danger" (click)="deleteProduto(produto._id)">Deletar</button>
+<button type="button" class="btn btn-lg btn-danger" (click)="deleteLutador(lutador._id)">Deletar</button>
 
+<button type="button" class="btn btn-lg btn-danger" routerLink="/lutadores" [routerLinkActive]="['router-link-active']">Voltar</button>

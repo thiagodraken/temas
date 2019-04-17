@@ -12,7 +12,7 @@ import { LutadorService } from '../../services/lutador.service';
   animations: [routerTransition()]
 })
 export class LutadorDetalheComponent implements OnInit {
-  lutador: Lutador = { id: '', nome: '', idade: null, sexo: '', peso: null, paisOrigem: '', dataAtualizacao: null };
+  lutador: Lutador = { _id: '', nome: '', idade: null, sexo: '', peso: null, paisOrigem: '', dataAtualizacao: null };
   isLoadingResults = true;
   constructor(private router: Router, private route: ActivatedRoute, private api: LutadorService) { }
 
