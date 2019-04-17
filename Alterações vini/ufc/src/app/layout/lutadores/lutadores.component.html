@@ -1,20 +1,8 @@
 <div [@routerTransition]>
   <!-- <app-page-header [heading]="'Tables'" [icon]="'fa-table'"></app-page-header> -->
-  <app-page-header [heading]="'Lutadores'" ></app-page-header>
+  <app-page-header [heading]="'Lutadores'"></app-page-header>
   
-  <!-- <ul class="heroes">
-    <li *ngFor="let lutador of dataSource">
-      <a routerLink="/detail/{{lutador.id}}">
-        <span class="badge">{{lutador.id}}</span> {{lutador.nome}}
-      </a>
-      <button class="delete" title="delete hero"
-      (click)="delete(hero)">x</button>
-    </li>
-  </ul> -->
-  
-  <a routerLink="/lutador-novo" [routerLinkActive]="['router-link-active']">
-    <button type="button" class="btn btn-lg btn-danger">Cadastrar Lutador</button>
-  </a>
+  <button type="button" routerLink="/lutador-novo" [routerLinkActive]="['router-link-active']" class="btn btn-lg btn-danger">Cadastrar Lutador</button>
   
   <div class="row">
     <div class="col col-xl-12 col-lg-12">        

@@ -50,7 +50,7 @@ export class LutadorService {
   }
 
   deleteLutador (id): Observable<Lutador> {
-    const url = `${apiUrl}/delete/${id}`;
+    const url = `${apiUrl}/${id}`;
 
     return this.http.delete<Lutador>(url, httpOptions).pipe(
       tap(_ => console.log(`remove o lutador com id=${id}`)),

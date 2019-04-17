@@ -30,4 +30,17 @@ export class LutadorDetalheComponent implements OnInit {
       });
   }
 
+  deleteLutador(id) {
+    this.isLoadingResults = true;
+    this.api.deleteLutador(id)
+      .subscribe(res => {
+          this.isLoadingResults = false;
+          this.router.navigate(['/lutadores']);
+        }, (err) => {
+          console.log(err);
+          this.isLoadingResults = false;
+        }
+      );
+  }
+
 }
