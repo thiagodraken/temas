@@ -6,7 +6,11 @@ import { LutadoresComponent } from './lutadores.component';
 import { PageHeaderModule } from '../../shared';
 
 @NgModule({
-    imports: [CommonModule, LutadoresRoutingModule, PageHeaderModule],
+    imports: [
+        CommonModule,
+        LutadoresRoutingModule,
+        PageHeaderModule
+    ],
     declarations: [LutadoresComponent]
 })
 export class LutadoresModule {}

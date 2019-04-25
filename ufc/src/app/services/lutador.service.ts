@@ -7,8 +7,8 @@ import { Lutador } from '../models/lutador';
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
 };
-// const apiUrl = 'https://localhost:3000/lutador';
-const apiUrl = 'https://54.207.103.183:3000/lutador';
+ const apiUrl = 'https://localhost:3000/lutador';
+// const apiUrl = 'https://54.207.103.183:3000/lutador';
 
 @Injectable({
   providedIn: 'root'
@@ -18,12 +18,29 @@ export class LutadorService {
   constructor(private http: HttpClient) { }
 
   getLutadores (): Observable<Lutador[]> {
-    return this.http.get<Lutador[]>(apiUrl + '?key=4ccc9336b467b9cf58051ea123493ef114eae029')
-      .pipe(
-        tap(lutadores => console.log('leu os lutadores')),
-        catchError(this.handleError('getLutadores', []))
-      );
+    return this.http.get<Lutador[]>(apiUrl + '?key=4ccc9336b467b9cf58051ea123493ef114eae029');
+      // .pipe(
+      //   tap(lutadores => console.log('leu os lutadores')),
+      //   catchError(this.handleError('getLutadores', []))
+      // );
   }
+    pesquisaLutadores(termo: string, categoria: string): Observable<Lutador[]> {
+      let query = '';
+      if (!termo.trim() && !categoria) {
+        return of([]);
+      }
+      if (termo.trim()) {
+        query += '&nome=' + termo;
+      }
+      if (categoria.trim()) {
+        query += '&categoriaPeso=' + categoria;
+      }
+      // tslint:disable-next-line:max-line-length
+      return this.http.get<Lutador[]>(apiUrl + '?key=4ccc9336b467b9cf58051ea123493ef114eae029' + query).pipe(
+        tap(_ => console.log(`Encontrou lutador que começa com: "${termo}"`)),
+        catchError(this.handleError<Lutador[]>('pesquisaLutadores', []))
+      );
+    }
 
   getLutador(id: number): Observable<Lutador> {
     const url = `${apiUrl}/${id}`;
