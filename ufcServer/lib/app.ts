@@ -8,7 +8,7 @@ class App {
 
     public app: express.Application = express();
     public routePrv: Routes = new Routes(); 
-    public mongoUrl: string = 'mongodb+srv://vifanti:280695@crud-nodejs-vf8hk.mongodb.net/test?retryWrites=true';
+    public mongoUrl: string = 'mongodb+srv://vifanti:280695@crud-nodejs-vf8hk.mongodb.net/dbufc?retryWrites=true';
 
     public options:cors.CorsOptions = {
         allowedHeaders: ["Origin", "X-Requested-With", "Content-Type", "Accept", "X-Access-Token"],

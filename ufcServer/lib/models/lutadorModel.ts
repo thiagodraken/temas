@@ -26,3 +26,4 @@ export const LutadorSchema = new Schema({
         default: Date.now
     }
 });
+LutadorSchema.index({'$**': 'text'});
