@@ -1,0 +1,30 @@
+<app-page-header [heading]="'Cálculo de categoria de peso'"></app-page-header>
+<div class="jumbotron">
+  <div class="row">
+    <div class="col-lg-4">
+      <fieldset class="form-group">
+        <label><h4>Informe o seu peso</h4></label>
+        <input class="form-control" autocomplete="off" #peso id="peso" (input)="verificaCategoria(peso.value, sexo.value)">
+      </fieldset>
+    </div>
+
+    <div class="col-lg-2">
+        <fieldset class="form-group">
+          <label><h4>Sexo</h4></label>
+          <select class="form-control" #sexo id="sexo" (change)="verificaCategoria(peso.value, sexo.value)">
+            <option value = 'M'>Masculino</option>
+            <option value = 'F'>Feminino</option>
+          </select>
+        </fieldset>
+      </div>
+    
+    <div class="col-lg-6">
+        <div *ngIf="mostraBloco" class="card text-white bg-danger mb-3">
+            <div class="card-header"><h5>Sua categoria de peso é <b>{{categoria}}</b></h5></div>
+            <div class="card-body">
+                <p class="card-text">Você precisa perder {{pesoCategoriaAnterior}}Kg para descer de categoria ou ganhar {{pesoProximaCategoria}}Kg para subir de categoria</p>
+            </div>
+        </div>
+    </div>
+  </div>
+</div>

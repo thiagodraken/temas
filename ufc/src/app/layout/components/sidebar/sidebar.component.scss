@@ -4,9 +4,9 @@ $topnav-background-color: #222;
     position: fixed;
     z-index: 1000;
     top: 56px;
-    left: 235px;
-    width: 235px;
-    margin-left: -235px;
+    left: 250px;
+    width: 250px;
+    margin-left: -250px;
     margin-bottom: 48px;
     border: none;
     border-radius: 0;
@@ -162,7 +162,7 @@ $topnav-background-color: #222;
 
 .toggle-button {
     position: fixed;
-    width: 236px;
+    width: 250px;
     cursor: pointer;
     padding: 12px;
     bottom: 0;
@@ -184,7 +184,7 @@ $topnav-background-color: #222;
 }
 
 .collapsed {
-    width: 50px;
+    width: 58px;
     span {
         display: none;
     }
