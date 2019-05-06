@@ -29,8 +29,12 @@ export class Routes {
             }                        
         }, this.lutadorController.getLutadores)        
 
+
         // POST endpoint
         .post(this.lutadorController.addNewLutador);
+
+        app.route('/lutador/versus')
+        .get(this.lutadorController.getLutadoresAleatorios);
 
         // Lutador detail
         app.route('/lutador/:lutadorId')

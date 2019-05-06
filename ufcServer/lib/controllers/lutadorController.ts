@@ -1,14 +1,14 @@
 import * as mongoose from 'mongoose';
 import { LutadorSchema } from '../models/lutadorModel';
 import { Request, Response } from 'express';
+import { CalculoCategoria } from './calculo-categoria'
 
 const Lutador = mongoose.model('Lutador', LutadorSchema);
-
+const calculoCategoria: CalculoCategoria = new CalculoCategoria() 
 export class LutadorController{
     
     public addNewLutador (req: Request, res: Response) {                
         let newLutador = new Lutador(req.body);
-        
         newLutador.save((err, lutador) => {
             if(err){
                 res.send(err);
@@ -16,9 +16,22 @@ export class LutadorController{
             res.json(lutador);
         });
     }
-    
-    
-    
+
+    public getLutadoresAleatorios (req: Request, res: Response){
+        let pesoMinMax: Number[] = calculoCategoria.verificaPeso(req.query.categoriaPeso);
+        let query = [  
+            { $match:  { sexo : req.query.sexo}},
+            { $match: { peso:{$gt:pesoMinMax[0],$lte:pesoMinMax[1]}} },
+            { $sample: { size: 2 } }
+        ];
+        
+        Lutador.aggregate(query, (err, lutador) => {
+            if(err){
+                res.send(err);
+            }
+            res.json(lutador);
+        });
+    }
     
     public getLutadores (req: Request, res: Response) {           
         
@@ -31,7 +44,7 @@ export class LutadorController{
         }
         
         if (req.query.categoriaPeso !== undefined) {
-            let pesoMinMax: Number[] = verificaCategoria(req.query.categoriaPeso);
+            let pesoMinMax: Number[] = calculoCategoria.verificaPeso(req.query.categoriaPeso);
             var filtroPeso = {$or:[{peso:{$gt:pesoMinMax[0],$lte:pesoMinMax[1]},sexo:"F"},{ peso:{$gt:pesoMinMax[2],$lte:pesoMinMax[3]},sexo:"M"}]};
             query = filtroPeso;
         }
@@ -45,33 +58,7 @@ export class LutadorController{
                 res.send(err);
             }
             res.json(lutador);
-        });
-        
-        function verificaCategoria(categoriaPeso): Number[] {
-            switch (categoriaPeso) {
-                case "peso_palha":
-                return [0,52,0,0];
-                case "peso_mosca":
-                return [52,52.2,52.2,56.7];
-                case "peso_galo":
-                return [52.2,61.1,56.7,61.2];
-                case "peso_pena":
-                return [61.1,65.7,61.2,65.7];
-                case "peso_leve":
-                return [65.7,70.3,65.7,70.3];
-                case "peso_meio-medio":
-                return [70.3,77.1,70.3,77.1];
-                case "peso_medio":
-                return [77.1,83.9,77.1,83.9];
-                case "peso_meio-pesado":
-                return [83.9,92.9,83.9,92.9];
-                case "peso_pesado":
-                return [92.9,120.2,92.9,120.2];
-                
-                default:
-                break;
-            }
-        }
+        });  
     }
     
     public getLutadorComID (req: Request, res: Response) {           
@@ -100,6 +87,4 @@ export class LutadorController{
             res.json({ message: 'Lutador deletado com sucesso!'});
         });
     }
-    
-    
 }
