@@ -1,0 +1,100 @@
+<app-page-header [heading]="'Pesquisa Aleatória'"></app-page-header>
+
+
+<div class="jumbotron">
+  
+  <h1>Organize uma luta!</h1>
+  <p>
+    Com base em seus lutadores cadastrados, pesquise dois lutadores aleatóriamente de mesmo sexo e mesma categoria de peso:
+  </p>
+  
+  <div class="row">
+    
+    
+    <div class="col-lg-6">
+      <fieldset class="form-group">
+        <label>Categoria de Peso</label>
+        <select class="form-control" #categoriaPeso id="categoriaPeso">
+          <option></option>
+          <option value = 'peso_palha'>Peso Palha</option>
+          <option value = 'peso_mosca'>Peso Mosca</option>
+          <option value = 'peso_galo'>Peso Galo</option>
+          <option value = 'peso_pena'>Peso Pena</option>
+          <option value = 'peso_leve'>Peso Leve</option>
+          <option value = 'peso_meio-medio'>Peso Meio-Médio</option>
+          <option value = 'peso_medio'>Peso Médio</option>
+          <option value = 'peso_meio-pesado'>Peso Meio-Pesado</option>
+          <option value = 'peso_pesado'>Peso Pesado</option>
+        </select>
+      </fieldset>
+    </div>
+    
+    <div class="col-lg-3">
+      <fieldset class="form-group">
+        <label>Sexo</label>
+        <select class="form-control" #sexo id="sexo">
+          <option value = 'M'>Masculino</option>
+          <option value = 'F'>Feminino</option>
+        </select>
+      </fieldset>
+    </div>
+    
+    <div class = "col-lg-3" style="padding-top: 31px;">
+      <fieldset class="form-group">
+        <button type="button" class="btn btn-danger col-lg-12" (click)="getLutadoresAleatorios(categoriaPeso.value, sexo.value)">Pesquisar</button>
+      </fieldset>
+    </div>
+    
+  </div>
+  
+  
+  <div *ngIf='dataSource' class="row">
+    
+    <div class="col-lg-5">
+      <div class="card text-white bg-danger mb-3">
+        <div class="card-header"><h5>{{dataSource[0].nome}}</h5></div>
+        <div class="card-body">
+          <p class="card-text">Idade: {{dataSource[0].idade}}<br>
+            Peso: {{dataSource[0].peso}} Kg<br>
+            Origem: {{dataSource[0].paisOrigem}}</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="col-lg-2">
+      <h1 style="text-align: center;">VS</h1>
+    </div>
+    
+    <div class="col-lg-5">
+      <div class="card text-white bg-danger mb-3">
+        <div class="card-header"><h5>{{dataSource[1].nome}}</h5></div>
+        <div class="card-body">
+          <p class="card-text">Idade: {{dataSource[1].idade}}<br>
+            Peso: {{dataSource[1].peso}} Kg<br>
+            Origem: {{dataSource[1].paisOrigem}}</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div *ngIf='lutadoresInsuficientes' class="row">
+    
+    <div class="col-lg-12">
+      <div class="card text-white bg-danger mb-3">
+        <div class="card-body">
+          <p class="card-text">Número de lutadores insuficientes para esta categoria e sexo</p>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+  
+  
+  
+  
+  
+  
+  
+  
+</div>

@@ -7,13 +7,20 @@ import { Lutador } from '../models/lutador';
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
 };
-// const apiUrl = 'https://localhost:3000/lutador';
- const apiUrl = 'https://54.207.110.201:3000/lutador';
+ const apiUrl = 'https://localhost:3000/lutador';
+// const apiUrl = 'https://54.207.110.201:3000/lutador';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LutadorService {
+
+  getLutadoresAleatorios(categoriaPeso: any, sexo: any): Observable<Lutador[]> {
+    const url = apiUrl + '/versus?sexo=' + sexo + '&categoriaPeso=' + categoriaPeso;
+    return this.http.get<Lutador[]>(url).pipe(
+      catchError(this.handleError<Lutador[]>('getLutadoresAleatorios', []))
+    );
+  }
 
   constructor(private http: HttpClient) { }
 

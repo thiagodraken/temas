@@ -14,6 +14,7 @@ const routes: Routes = [
             { path: 'lutador-detalhe/:id', loadChildren: './lutador-detalhe/lutador-detalhe.module#LutadorDetalheModule' },
             { path: 'lutador-editar/:id', loadChildren: './lutador-editar/lutador-editar.module#LutadorEditarModule' },
             { path: 'verifica-categoria', loadChildren: './verifica-categoria/verifica-categoria.module#VerificaCategoriaModule' },
+            { path: 'pesquisa-aleatoria', loadChildren: './pesquisa-aleatoria/pesquisa-aleatoria.module#PesquisaAleatoriaModule' },
             { path: 'dashboard', loadChildren: './dashboard/dashboard.module#DashboardModule' },
             { path: 'charts', loadChildren: './charts/charts.module#ChartsModule' },
             { path: 'tables', loadChildren: './tables/tables.module#TablesModule' },
