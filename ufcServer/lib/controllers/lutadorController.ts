@@ -16,12 +16,24 @@ export class LutadorController{
             res.json(lutador);
         });
     }
-
+    
     public getLutadoresAleatorios (req: Request, res: Response){
         let pesoMinMax: Number[] = calculoCategoria.verificaPeso(req.query.categoriaPeso);
+        let Min;
+        let Max;
+        switch (req.query.sexo) {
+            case 'F':
+            Min = 0;
+            Max = 1
+            break;
+            default:
+            Min = 2;
+            Max = 3;
+            break;
+        }
         let query = [  
             { $match:  { sexo : req.query.sexo}},
-            { $match: { peso:{$gt:pesoMinMax[0],$lte:pesoMinMax[1]}} },
+            { $match: { peso:{$gt:pesoMinMax[Min],$lte:pesoMinMax[Max]}} },
             { $sample: { size: 2 } }
         ];
         
