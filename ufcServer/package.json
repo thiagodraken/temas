@@ -18,13 +18,21 @@
   "license": "ISC",
   "dependencies": {
     "@types/express": "^4.16.1",
+    "bcrypt": "^3.0.6",
+    "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.3",
+    "class-validator": "^0.9.1",
     "cors": "^2.8.5",
     "express": "^4.16.4",
+    "express-jwt": "^5.3.1",
+    "jsonwebtoken": "^8.2.2",
     "mongoose": "^5.4.7",
-    "nodemon": "^1.18.9"
+    "nodemon": "^1.18.9",
+    "typeorm": "0.2.12"
   },
   "devDependencies": {
-    "@types/cors": "^2.8.4"
+    "@types/bcryptjs": "^2.4.2",
+    "@types/cors": "^2.8.4",
+    "@types/mongoose": "^5.5.0"
   }
 }
