@@ -8,6 +8,11 @@ import { LanguageTranslationModule } from './shared/modules/language-translation
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthGuard } from './shared';
+import { JwtModule } from '@auth0/angular-jwt';
+
+export function tokenGetter() {
+    return localStorage.getItem('access_token');
+  }
 @NgModule({
     imports: [
         CommonModule,
@@ -16,6 +21,11 @@ import { AuthGuard } from './shared';
         HttpClientModule,
         LanguageTranslationModule,
         AppRoutingModule,
+        JwtModule.forRoot({
+            config: {
+              tokenGetter: tokenGetter
+            }
+        })
     ],
     declarations: [AppComponent],
     providers: [AuthGuard],
