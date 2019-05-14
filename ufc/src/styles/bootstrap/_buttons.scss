@@ -49,6 +49,13 @@
   }
 }
 
+@media screen and (max-width: 992px){
+  .btn{
+    margin-bottom: 5px;
+    margin-top: 5px;
+  }
+}
+
 // Future-proof disabling of clicks on `<a>` elements
 a.btn.disabled,
 fieldset[disabled] a.btn {

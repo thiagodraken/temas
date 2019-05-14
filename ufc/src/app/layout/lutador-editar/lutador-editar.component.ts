@@ -3,8 +3,8 @@ import { routerTransition } from '../../router.animations';
 
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { LutadorService } from '../../services/lutador.service';
-import { Lutador } from '../../models/lutador';
+import { LutadorService } from '../../shared/services/lutador.service';
+import { Lutador } from '../../shared/models/lutador';
 
 @Component({
   selector: 'app-lutador-editar',
@@ -14,6 +14,7 @@ import { Lutador } from '../../models/lutador';
 })
 export class LutadorEditarComponent implements OnInit {
   id: String = '';
+  nomeLutador;
   formLutador = new FormGroup({
     nomeLutador: new FormControl(''),
     idadeLutador: new FormControl(''),
@@ -39,6 +40,7 @@ export class LutadorEditarComponent implements OnInit {
   getLutador(id) {
     this.api.getLutador(id).subscribe(data => {
       this.id = data._id;
+      this.nomeLutador = data.nome;
       this.formLutador.setValue({
         nome: data.nome,
         idade: data.idade,

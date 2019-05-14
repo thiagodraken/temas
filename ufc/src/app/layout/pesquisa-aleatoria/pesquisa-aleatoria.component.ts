@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { routerTransition } from '../../router.animations';
-import { Lutador } from '../../models/lutador';
-import { LutadorService } from '../../services/lutador.service';
+import { Lutador } from '../../shared/models/lutador';
+import { LutadorService } from '../../shared/services/lutador.service';
 
 @Component({
   selector: 'app-pesquisa-aleatoria',

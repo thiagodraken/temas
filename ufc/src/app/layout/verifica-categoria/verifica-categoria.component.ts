@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { routerTransition } from '../../router.animations';
-import { CalculoCategoriaService } from '../../services/calculo-categoria.service';
+import { CalculoCategoriaService } from '../../shared/services/calculo-categoria.service';
 
 @Component({
   selector: 'app-verifica-categoria',

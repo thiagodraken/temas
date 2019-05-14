@@ -8,6 +8,7 @@ import { RouterModule } from '@angular/router';
 })
 export class PageHeaderComponent implements OnInit {
     @Input() heading: string;
+    @Input() nomeLutador: string;
     @Input() icon: string;
     constructor() {}
 

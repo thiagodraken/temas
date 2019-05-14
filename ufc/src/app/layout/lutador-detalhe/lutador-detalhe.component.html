@@ -1,15 +1,92 @@
-<div>
-  <h3>Lutador {{lutador.nome}}</h3>
+<div [@routerTransition]>
+  <app-page-header [heading]="'Detalhes lutador ' + lutador.nome" [icon]="'fa-hand-rock-o'"></app-page-header>
+  
+  <div class="row">
+    
+    <div class="col-lg-6">
+      
+      <form role="form">
+        
+        <fieldset disabled="">
+          
+          <fieldset class="form-group">
+            <div class="row">
+              <label class="col-lg-4 col-form-label">Nome: </label>
+              <div class="col-lg-8">
+                <input class="form-control" name="nome" value="{{lutador.nome}}">
+              </div>
+            </div>
+          </fieldset>
+          
+          <fieldset class="form-group">
+            <div class="row">
+              <label class="col-lg-4 col-form-label">Idade: </label>
+              <div class="col-lg-8">
+                <input class="form-control" name="idade" value="{{lutador.idade}}">
+              </div>
+            </div>
+          </fieldset>
+          
+          <fieldset class="form-group">
+            <div class="row">
+              <label class="col-lg-4 col-form-label">Sexo: </label>
+              <div class="col-lg-8">
+                <input class="form-control" name="sexo" value="{{lutador.sexo}}">
+              </div>
+            </div>
+          </fieldset>
+          
+        </fieldset>
+        
+      </form>
+      
+    </div>
+    
+    <div class="col-lg-6">
+      
+      <form role="form">
+        
+        <fieldset disabled="">
+          
+          <fieldset class="form-group">
+            <div class="row">
+              <label class="col-lg-4 col-form-label">Peso: </label>
+              <div class="col-lg-8">
+                <input class="form-control" name="peso" value="{{lutador.peso}}">
+              </div>
+            </div>
+          </fieldset>
+          
+          <fieldset class="form-group">
+            <div class="row">
+              <label class="col-lg-4 col-form-label">País de Origem: </label>
+              <div class="col-lg-8">
+                <input class="form-control" name="paisOrigem" value="{{lutador.paisOrigem}}">
+              </div>
+            </div>
+          </fieldset>
+          
+        </fieldset>
+      </form>
+    </div>
+  </div>
+  
+  
+  <div class="row">
+    <div class="col-lg-6">
+      <div class="row">
+        <div class="col-lg-4">
+          <button type="button" class="btn btn-lg btn-default col-lg-12" routerLink="/lutadores" [routerLinkActive]="['router-link-active']">Voltar</button>
+        </div>
+        
+        <div class="col-lg-4">
+          <button type="button" class="btn btn-lg btn-danger col-lg-12" routerLink="/lutador-editar/{{lutador._id}}" [routerLinkActive]="['router-link-active']">Editar</button>
+        </div>
+        
+        <div class="col-lg-4">
+          <button type="button" class="btn btn-lg btn-secondary col-lg-12" (click)="deleteLutador(lutador._id)">Deletar</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-
-<input name="nome" placeholder="{{lutador.nome}}">
-<input name="idade" placeholder="{{lutador.idade}}">
-<input name="sexo" placeholder="{{lutador.sexo}}">
-<input name="peso" placeholder="{{lutador.peso}}">
-<input name="paisOrigem" placeholder="{{lutador.paisOrigem}}">
-
-<button type="button" class="btn btn-lg btn-danger" routerLink="/lutador-editar/{{lutador._id}}" [routerLinkActive]="['router-link-active']">Editar</button>
-
-<button type="button" class="btn btn-lg btn-danger" (click)="deleteLutador(lutador._id)">Deletar</button>
-
-<button type="button" class="btn btn-lg btn-danger" routerLink="/lutadores" [routerLinkActive]="['router-link-active']">Voltar</button>

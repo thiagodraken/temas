@@ -7,7 +7,6 @@ $topnav-background-color: #222;
     left: 250px;
     width: 250px;
     margin-left: -250px;
-    margin-bottom: 48px;
     border: none;
     border-radius: 0;
     overflow-y: auto;
@@ -184,7 +183,7 @@ $topnav-background-color: #222;
 }
 
 .collapsed {
-    width: 58px;
+    width: 65px;
     span {
         display: none;
     }

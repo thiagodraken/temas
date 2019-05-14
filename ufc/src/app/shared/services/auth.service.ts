@@ -3,7 +3,7 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { User } from '../../models/user';
+import { User } from '../models/user';
 
 const apiUrl = 'https://localhost:3000/';
 @Injectable({

@@ -3,8 +3,8 @@ import { routerTransition } from '../../router.animations';
 
 import { Router } from '@angular/router';
 import { FormControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { LutadorService } from '../../services/lutador.service';
-import { Lutador } from '../../models/lutador';
+import { LutadorService } from '../../shared/services/lutador.service';
+import { Lutador } from '../../shared/models/lutador';
 
 @Component({
   selector: 'app-lutador-novo',

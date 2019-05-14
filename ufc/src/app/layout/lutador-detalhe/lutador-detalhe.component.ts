@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { routerTransition } from '../../router.animations';
 
 import { Router, ActivatedRoute } from '@angular/router';
-import { Lutador } from '../../models/lutador';
-import { LutadorService } from '../../services/lutador.service';
+import { Lutador } from '../../shared/models/lutador';
+import { LutadorService } from '../../shared/services/lutador.service';
 
 @Component({
   selector: 'app-lutador-detalhe',
@@ -25,7 +25,6 @@ export class LutadorDetalheComponent implements OnInit {
     this.api.getLutador(id)
       .subscribe(data => {
         this.lutador = data;
-        console.log(this.lutador);
         this.isLoadingResults = false;
       });
   }

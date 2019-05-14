@@ -22,7 +22,6 @@ Provides fast, reliable and extensible starter for the development of Angular pr
 *   angular-v7.0.2
 *   angular/cli-v7.0.4
 *   [ng-bootstrap-v4.0.0](https://github.com/ng-bootstrap/)
-*   [ngx-translate-v11.0.0](https://github.com/ngx-translate)
 *   Following the best practices.
 *   Ahead-of-Time compilation support.
 *   Official Angular i18n support.
